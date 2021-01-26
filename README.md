@@ -2,13 +2,11 @@
 
 This tool shows you a list of people who are not following you back, along with some mixed functionality
 
-## Installation
-
-TODO
-
 ## Usage
 
 First you will need a JSON or TXT file with JSONified array/list of your followers. You can use the utils.js code for that.
+
+If you want to ignore some results, you can create a TXT file and type all the accounts you want line by line and include the file name as the third CLI argument. They won't appear in the results.
 
 In the command line, type:
 
@@ -22,3 +20,12 @@ Other flags can be used to return different results
 |--|--|
 | -u | Aren't following back |
 | -b | You are not following back |
+
+Common commands:
+
+    python main.py followers.json following.json -u
+
+    python main.py followers.json following.json exclude.txt -u -b
+
+    python main.py followers.json following.json -b  
+    
