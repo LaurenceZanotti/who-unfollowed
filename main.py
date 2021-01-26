@@ -22,10 +22,10 @@ def main(argv):
 
 
     except FileNotFoundError:
-        print(f'File was not found. Did you type it correctly or is it in the same directory?')
+        print('File was not found. Did you type it correctly or is it in the same directory?')
         sys.exit(1)
 
-    print(type(excluded), excluded)
+    # print(type(excluded), excluded)
 
     # Retrieve list of accounts that are not following back
     if "-u" in argv:
@@ -57,7 +57,7 @@ def unfollowedList(followers, following, *args):
     if args[0] != "-": # If there's an exclusion file
         for account in following:
             if account in args[1]:
-                print("Skipped ", account)
+                # print("Skipped ", account)
                 continue # Skip to next account            
             if account not in followers:
                 unfollowed.append(account)
