@@ -25,15 +25,13 @@ def main(argv):
         print('File was not found. Did you type it correctly or is it in the same directory?')
         sys.exit(1)
 
-    # print(type(excluded), excluded)
-
     # Retrieve list of accounts that are not following back
     if "-u" in argv:
         unfollowed = unfollowedList(followers, following, argv[3], excluded)
 
         print("People who doesn't follow you back:\n")
-        for i in unfollowed:
-            print(i)
+        for account in unfollowed:
+            print(account)
         
         print("")
 
@@ -41,8 +39,8 @@ def main(argv):
     if "-b" in argv:
         unfollowed = unfollowedList(following, followers, argv[3], excluded)
         print("People who you don't follow back:\n")
-        for i in unfollowed:
-            print(i)
+        for account in unfollowed:
+            print(account)
 
         print("")
         
@@ -50,15 +48,13 @@ def main(argv):
 def unfollowedList(followers, following, *args):
     """
     Return list of people who unfollowed you
-
     """
     unfollowed = []
 
     if args[0] != "-": # If there's an exclusion file
         for account in following:
             if account in args[1]:
-                # print("Skipped ", account)
-                continue # Skip to next account            
+                continue # Skip to next account
             if account not in followers:
                 unfollowed.append(account)
     else:
