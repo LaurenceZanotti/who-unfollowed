@@ -5,29 +5,29 @@ def main(argv):
     followers, following, excluded = None, None, []
     
     if len(argv) < 3:
-        print("Missing arguments. Usage: main.py followers.txt following.txt [exclusion.txt] -u [-b]")
+        print("Argumentos faltando. Uso: main.py seguidores.txt seguindo.txt [excluidos.txt] -u [-b]")
         sys.exit(1)
 
-    # Load contents of the files
+    # Carregar conteúdos dos arquivos
     followers = parseAccounts(argv, 1)
     following = parseAccounts(argv, 2)
     if len(argv) >= 3 and argv[3][0] != "-":
         excluded = parseAccounts(argv, 3)
 
-    # Retrieve list of accounts that are not following back
+    # Obter lista de contas que não estão seguindo de volta
     if "-u" in argv:
         unfollowed = unfollowedList(followers, following, argv[3], excluded)
 
-        print("People who doesn't follow you back:\n")
+        print("Pessoas que não estão te seguindo de volta:\n")
         for account in unfollowed:
             print(account)
         
         print("")
 
-    # Retrive list of accounts that you (user) don't follow back
+    # Obter lista de contas que você (usuário) não segue de volta
     if "-b" in argv:
         unfollowed = unfollowedList(following, followers, argv[3], excluded)
-        print("People who you don't follow back:\n")
+        print("Pessoas que você não segue de volta:\n")
         for account in unfollowed:
             print(account)
 
@@ -36,14 +36,14 @@ def main(argv):
 
 def unfollowedList(followers, following, *args):
     """
-    Return list of people who unfollowed you
+    Retorna uma lista de pessoas que deixaram de seguir você
     """
     unfollowed = []
 
-    if args[0] != "-": # If there's an exclusion file
+    if args[0] != "-": # Se estiver lista de exclusão
         for account in following:
             if account in args[1]:
-                continue # Skip to next account
+                continue # Pular para próxima conta
             if account not in followers:
                 unfollowed.append(account)
     else:
@@ -56,7 +56,7 @@ def unfollowedList(followers, following, *args):
 
 def parseAccounts(argv, index):
     """
-    Parse accounts in a list whether the data is json or txt
+    Converte contas em uma lista independente de ser json ou txt
     """
     try:
         with open(argv[index]) as file:
@@ -71,7 +71,7 @@ def parseAccounts(argv, index):
                 return arr
 
     except FileNotFoundError:
-        print('File was not found. Did you type it correctly or is it in the same directory?')
+        print('O arquivo não foi encontrado. Você digitou corretamente ou ele está no mesmo diretório?')
         sys.exit(1)
 
 main(sys.argv)

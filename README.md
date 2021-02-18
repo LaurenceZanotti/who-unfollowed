@@ -1,35 +1,35 @@
-# **Who Unfollowed**
+# **Who Unfollowed (Quem deixou de seguir)**
 
-This tool shows you a list of people who are not following you back, along with some mixed functionality
+Esta ferramenta te mostra uma lista de pessoas que não estão te seguindo de volta, juntamente com umas funcionalidades mixadas
 
-## Usage
+## Uso
 
-First you will need a JSON or TXT file with JSONified array/list of your followers. You can use the util.js code for that.
+Primeiro você precisará de um arquivo JSON ou TXT com um array/lista JSONificado dos seus seguidores. Você pode usar o código do util.js para isso.
 
-If you want to ignore some results, you can create a TXT file and type all the accounts you want line by line and include the file name as the third CLI argument. Those accounts won't appear in the results.
+Se você quiser ignorar alguns resultados, você pode criar um arquivo TXT e digitar todas as contas que você quer linha por linha e incluir o nome do arquivo como terceiro argumento na CLI. Essas contas não vão aparecer nos resultados.
 
-In the command line, type:
+Na linha de comando, digite:
 
-    python main.py filename_1 filename_2 -u
+    python main.py nomearquivo_1 nomearquivo_2 -u
 
-Which is equivalent to
+Ou seja, você pode escrever:
 
-    python main.py followers.txt following.txt -u
+    python main.py seguidores.txt seguindo.txt -u
 
-This will return a list with account that don't follow you back
+Isso vai retornar uma lista com as contas que não te seguem de volta
 
-Other flags can be used to return different results
+Outras flags podem ser usada para retornar diferentes resultados
 
-|Flags| What it does |
+|Flags| O que ela faz |
 |--|--|
-| -u | Aren't following back |
-| -b | You are not following back |
+| -u | Que não estão te seguindo de volta |
+| -b | Que você não está seguindo de volta |
 
-Common commands usage:
+Uso de comandos comuns:
 
-    python main.py followers.json following.json -u
+    python main.py seguidores.json seguindo.json -u
 
-    python main.py followers.json following.json exclude.txt -u -b
+    python main.py seguidores.json seguindo.json excluir.txt -u -b
 
-    python main.py followers.json following.json -b  
+    python main.py seguidores.json seguindo.json -b  
     

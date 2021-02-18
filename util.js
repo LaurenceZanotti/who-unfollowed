@@ -1,9 +1,10 @@
-// This is a utility script used in the browser console to retrieve datasets.
-// Maybe a webcrawler might be implemented in the future
+// Este é um script de utilidade usado no console do navegador para buscar datasets.
+// Talvez um webcrawler seja implementado no futuro
 
 /**
- * Gets an array of followers from IG div element
- * (only works if the div was scrolled all the way down, loading all accounts to the DOM)
+ * Obtém um array de seguidores do elemento div do IG
+ * (funciona apenas se a div tiver sido scrollada até o final, carregando todas as contas
+ * no DOM)
  */
 function getFollowers() {
 	let igs = document.querySelectorAll('.FPmhX')
@@ -18,31 +19,31 @@ function getFollowers() {
 
 
 /**
- * Returns a formatted array in either stringified JSON format or txt with newlines
- * @param {object} arr - The followers array
- * @param {string} format - The format which the followers will be formatted to
+ * Retorna um array formatado em formato JSON stringificado ou txt com newlines
+ * @param {object} arr - O array de seguidores
+ * @param {string} format - O formato que os seguidores serão convertidos
  */
 function formatFollowers(arr, format) {
-	// Ensure arr is an array
+	// Garantir que arr é um array
 	if (!arr || typeof(arr) != "object") {
-		throw TypeError("Must provide an array of accounts")
+		throw TypeError("Precisa providenciar um array com contas do IG")
 	}
-	// Returns specified format
+	// Retorna o formato especificado
 	if (format === 'json') {
 		return JSON.stringify(arr)
 	} else if (format === 'txt') {
 		return arr.join('\n')
 	}
-	// Throws error if format has unsupported value and type
+	// Lança erro se o formato tiver um valor e tipo não suportado
 	else {
-		throw Error('Must choose format between json or txt')
+		throw Error('Precisa escolher um formato entre json ou txt')
 	}
 }
 
-// Get array of accounts
+// Obter array de contas
 let accounts = getFollowers()
 let accounts_json = formatFollowers(accounts, 'json')
 let accounts_txt = formatFollowers(accounts, 'txt')
 
-// Use console.log() within account_json or account_txt vars to display data to console
-// Then just copy to a json or txt file to use within the program
+// Use console.log() com as variáveis account_json ou account_txt para exibir os dados no console
+// E então apenas copie para um arquivo json ou txt para usar com o programa
