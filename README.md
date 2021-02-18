@@ -10,6 +10,10 @@ If you want to ignore some results, you can create a TXT file and type all the a
 
 In the command line, type:
 
+    python main.py filename_1 filename_2 -u
+
+Which is equivalent to
+
     python main.py followers.txt following.txt -u
 
 This will return a list with account that don't follow you back

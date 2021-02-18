@@ -1,5 +1,2 @@
 .vscode/
-
-followers.json
-following.json
-exclude.txt
+data/
